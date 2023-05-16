@@ -1,7 +1,7 @@
 const serverless = require("serverless-http");
 const express = require("express");
 const { connectDB } = require("./db/database.js");
-// const userController = require("./user/user.controller.js");
+const userController = require("./user/user.controller.js");
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.post("/", (req, res, next) => {
   return res.status(200).json(req.body);
 });
 
-// app.use("/user", userController);
+app.use("/user", userController);
 
 //404
 app.use((req, res, next) => {
