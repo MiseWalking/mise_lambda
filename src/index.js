@@ -4,6 +4,7 @@ const { connectDB } = require("./db/database.js");
 const userController = require("./user/user.controller.js");
 const weightController = require("./weight/weight.controller.js");
 const routeController = require("./route/route.controller.js");
+const dataController = require("./mise/dataController.js");
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.post("/", (req, res, next) => {
   return res.status(200).json(req.body);
 });
 
+app.use("/data", dataController);
 app.use("/user", userController);
 app.use("/weight", weightController);
 app.use("/route", routeController);
