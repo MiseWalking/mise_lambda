@@ -3,6 +3,7 @@ const express = require("express");
 const { connectDB } = require("./db/database.js");
 const userController = require("./user/user.controller.js");
 const weightController = require("./weight/weight.controller.js");
+const routeController = require("./route/route.controller.js");
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.post("/", (req, res, next) => {
 
 app.use("/user", userController);
 app.use("/weight", weightController);
+app.use("/route", routeController);
 
 //404
 app.use((req, res, next) => {
